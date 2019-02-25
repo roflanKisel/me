@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Spinner from '../components/Spinner';
+import Navbar from '../components/Navbar';
 
 class Index extends React.Component {
   static getInitialProps() {
@@ -11,18 +11,21 @@ class Index extends React.Component {
   render() {
     return (
       <Container>
-        <Spinner dotSize={2.7} size={8} />
+        <Navbar />
       </Container>
     );
   }
 }
 
 const Container = styled.div`
+  pointer-events: none;
   display: flex;
   justify-content: center;
   align-items: center;
 
   height: 100vh;
+
+  background-color: black;
 `;
 
 export default Index;

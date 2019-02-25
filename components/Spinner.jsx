@@ -85,7 +85,6 @@ const DotContainer = styled.div`
 `;
 
 const Dot = styled.div`
-  background: yellow;
   width: ${props => props.size}vh;
   height: ${props => props.size}vh;
   border-radius: 50%;
