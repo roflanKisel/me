@@ -2,18 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
 
-const Hamburger = ({ isActive, onActivate }) => (
-  <Container isActive={isActive} onClick={onActivate} />
+const Hamburger = ({
+  color,
+  isActive,
+  onActivate,
+  rounding,
+  size,
+  thickness,
+}) => (
+  <Container
+    color={color}
+    isActive={isActive}
+    onClick={onActivate}
+    rounding={rounding}
+    size={size}
+    thickness={thickness}
+  />
 );
 
+// TODO: make custom PropTypes checker
 Hamburger.propTypes = {
+  color: PropTypes.oneOf(['white', 'black']),
   isActive: PropTypes.bool,
   onActivate: PropTypes.func,
+  rounding: PropTypes.number,
+  size: PropTypes.number,
+  thickness: PropTypes.number,
 };
 
 Hamburger.defaultProps = {
+  color: 'white',
   isActive: false,
   onActivate: () => {},
+  rounding: 10,
+  size: 100,
+  thickness: 10,
 };
 
 const defaultPosition = (angle, height) => keyframes`
@@ -25,15 +48,12 @@ const rotate = (angle, height) => keyframes`
   to { transform: translateY(${height}px) rotate(${angle}deg); }
 `;
 
-const stick = (angle, height) => css`
+const stick = (angle, height, thickness) => css`
   content: '';
   position: absolute;
-  background-color: white;
 
-  width: 100px;
-  height: 10px;
-
-  border-radius: 10px;
+  width: 100%;
+  height: ${thickness}px;
 
   animation: ${props => (
     props.isActive ? rotate(angle, height) : defaultPosition(angle, height)
@@ -43,19 +63,24 @@ const stick = (angle, height) => css`
 const Container = styled.div`
   pointer-events: all;
 
-  width: 100px;
-  height: 100px;
+  width: ${props => props.size}px;
+  height: ${props => props.size / 2 + props.thickness}px;
 
   position: relative;
 
   &::before {
-    ${stick(45, 25)}
+    ${props => stick(45, props.size / 4, props.thickness)}
+
+    background-color: ${props => props.color};
+    border-radius: ${props => props.rounding}px;
   }
 
   &::after {
-    ${stick(-45, -25)}
+    ${props => stick(-45, -(props.size / 4), props.thickness)}
 
-    top: 50px;
+    background-color: ${props => props.color};
+    border-radius: ${props => props.rounding}px;
+    top: ${props => props.size / 2}px;
   }
 `;
 

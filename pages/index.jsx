@@ -25,7 +25,7 @@ const Container = styled.div`
 
   height: 100vh;
 
-  background-color: black;
+  background-color: white;
 `;
 
 export default Index;

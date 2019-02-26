@@ -13,7 +13,14 @@ class Navbar extends React.PureComponent {
     const { isOpen } = this.state;
 
     return (
-      <Hamburger isActive={isOpen} onActivate={this.toggleOpen} />
+      <Hamburger
+        color="black"
+        isActive={isOpen}
+        onActivate={this.toggleOpen}
+        rounding={20}
+        size={100}
+        thickness={30}
+      />
     );
   }
 }
