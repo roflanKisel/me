@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-var _jsxFileName = "/home/aliaksandr/playground/me/components/Hamburger.jsx";
+var _jsxFileName = "/home/kisel/programming/github-io/components/Hamburger.jsx";
 
 
 
@@ -59,24 +59,16 @@ Hamburger.defaultProps = {
   thickness: 10
 };
 
-var defaultPosition = function defaultPosition(angle, height) {
-  return Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["keyframes"])(["from{transform:translateY(", "px) rotate(", "deg);}to{transform:rotate(0deg) translateY(0px);}"], height, angle);
-};
-
-var rotate = function rotate(angle, height) {
-  return Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["keyframes"])(["to{transform:translateY(", "px) rotate(", "deg);}"], height, angle);
-};
-
 var stick = function stick(angle, height, thickness) {
-  return Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["css"])(["content:'';position:absolute;width:100%;height:", "px;animation:", " 0.5s forwards;"], thickness, function (props) {
-    return props.isActive ? rotate(angle, height) : defaultPosition(angle, height);
+  return Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["css"])(["content:'';position:absolute;width:100%;height:", "px;transition:.5s ease;transform:", ";"], thickness, function (props) {
+    return props.isActive ? "translateY(".concat(height, "px) rotate(").concat(angle, "deg);") : 'rotate(0deg) translateY(0px);';
   });
 };
 
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
   displayName: "Hamburger__Container",
   componentId: "l02850-0"
-})(["pointer-events:all;width:", "px;height:", "px;position:relative;&::before{", " background-color:", ";border-radius:", "px;}&::after{", " background-color:", ";border-radius:", "px;top:", "px;}"], function (props) {
+})(["pointer-events:all;width:", "px;height:", "px;position:relative;transition:.5s ease;&::before{", " background-color:", ";border-radius:", "px;}&::after{", " background-color:", ";border-radius:", "px;top:", "px;}"], function (props) {
   return props.size;
 }, function (props) {
   return props.size / 2 + props.thickness;
@@ -111,7 +103,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Hamburger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Hamburger */ "./components/Hamburger.jsx");
-var _jsxFileName = "/home/aliaksandr/playground/me/components/Navbar.jsx";
+var _jsxFileName = "/home/kisel/programming/github-io/components/Navbar.jsx";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -4130,7 +4122,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Navbar */ "./components/Navbar.jsx");
-var _jsxFileName = "/home/aliaksandr/playground/me/pages/index.jsx";
+var _jsxFileName = "/home/kisel/programming/github-io/pages/index.jsx";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
