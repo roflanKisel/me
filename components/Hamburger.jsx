@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Hamburger = ({
   color,
@@ -39,15 +39,6 @@ Hamburger.defaultProps = {
   thickness: 10,
 };
 
-const defaultPosition = (angle, height) => keyframes`
-  from { transform: translateY(${height}px) rotate(${angle}deg); }
-  to { transform: rotate(0deg) translateY(0px); }
-`;
-
-const rotate = (angle, height) => keyframes`
-  to { transform: translateY(${height}px) rotate(${angle}deg); }
-`;
-
 const stick = (angle, height, thickness) => css`
   content: '';
   position: absolute;
@@ -55,9 +46,11 @@ const stick = (angle, height, thickness) => css`
   width: 100%;
   height: ${thickness}px;
 
-  animation: ${props => (
-    props.isActive ? rotate(angle, height) : defaultPosition(angle, height)
-  )} 0.5s forwards;
+  transition: .5s ease;
+
+  transform: ${props => (
+    props.isActive ? `translateY(${height}px) rotate(${angle}deg);` : 'rotate(0deg) translateY(0px);'
+  )};
 `;
 
 const Container = styled.div`
@@ -67,6 +60,8 @@ const Container = styled.div`
   height: ${props => props.size / 2 + props.thickness}px;
 
   position: relative;
+
+  transition: .5s ease;
 
   &::before {
     ${props => stick(45, props.size / 4, props.thickness)}
