@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { keyframes, css } from 'styled-components';
+import styled, {keyframes, css} from 'styled-components';
 
-const Spinner = ({ dotSize, size }) => (
+const Spinner = ({dotSize, size}) => (
   <Container size={size}>
     <DotContainer height={dotSize} width={size}>
       <Dot color="red" size={dotSize} />
@@ -32,7 +32,7 @@ Spinner.defaultProps = {
   size: 7,
 };
 
-const rotate = startPoint => keyframes`
+const rotate = (startPoint) => keyframes`
   from {
     transform: rotate(${startPoint});
   }
@@ -42,14 +42,14 @@ const rotate = startPoint => keyframes`
   }
 `;
 
-const animation = startPoint => css`
+const animation = (startPoint) => css`
   transform: rotate(${startPoint}deg);
   animation: ${rotate(startPoint)} 1.3s infinite linear;
 `;
 
 const Container = styled.div`
-  width: ${props => props.size}vh;
-  height: ${props => props.size}vh;
+  width: ${(props) => props.size}vh;
+  height: ${(props) => props.size}vh;
 
   margin: auto;
 
@@ -59,8 +59,8 @@ const Container = styled.div`
 `;
 
 const DotContainer = styled.div`
-  width: ${props => props.width}vh;
-  height: ${props => props.height}vh;
+  width: ${(props) => props.width}vh;
+  height: ${(props) => props.height}vh;
 
   display: flex;
   justify-content: flex-start;
@@ -85,11 +85,11 @@ const DotContainer = styled.div`
 `;
 
 const Dot = styled.div`
-  width: ${props => props.size}vh;
-  height: ${props => props.size}vh;
+  width: ${(props) => props.size}vh;
+  height: ${(props) => props.size}vh;
   border-radius: 50%;
 
-  background: ${props => props.color};
+  background: ${(props) => props.color};
 `;
 
 export default Spinner;

@@ -1,7 +1,7 @@
 import React from 'react';
-import App, { Container } from 'next/app';
+import App, {Container} from 'next/app';
 import Head from 'next/head';
-import { createGlobalStyle } from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -11,18 +11,18 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
+  static async getInitialProps({Component, ctx}) {
     let pageProps = {};
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    return {pageProps};
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const {Component, pageProps} = this.props;
 
     return (
       <Container>

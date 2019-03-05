@@ -9,6 +9,7 @@ const Hamburger = ({
   rounding,
   size,
   thickness,
+  ...props
 }) => (
   <Container
     color={color}
@@ -17,6 +18,7 @@ const Hamburger = ({
     rounding={rounding}
     size={size}
     thickness={thickness}
+    {...props}
   />
 );
 
