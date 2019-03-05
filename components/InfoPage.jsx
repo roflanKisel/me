@@ -6,9 +6,9 @@ const InfoPage = ({infoFilePath}) => {
   const [info, setInfo] = useState(null);
 
   const getInfo = async (fileName) => {
-    const infoPage = await import(`../info/${fileName}`);
+    const infoModule = await import(`../info/${fileName}`);
 
-    setInfo(infoPage.default);
+    setInfo(infoModule.default);
   };
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const InfoPage = ({infoFilePath}) => {
     } catch (err) {
       setInfo(null);
     }
-  }, [info]);
+  }, [infoFilePath]);
 
   return !info
     ? <Container />
