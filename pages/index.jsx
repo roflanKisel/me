@@ -1,6 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Navbar from '../components/Navbar';
+import InfoPage from '../components/InfoPage';
 
 class Index extends React.Component {
   static getInitialProps() {
@@ -9,9 +11,17 @@ class Index extends React.Component {
 
   render() {
     return (
-      <Navbar />
+      <Container>
+        <Navbar />
+        <InfoPage infoFilePath="index" />
+      </Container>
     );
   }
 }
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+`;
 
 export default Index;

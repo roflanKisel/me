@@ -5,18 +5,18 @@ import styled from 'styled-components';
 import HamburgerIcon from './HamburgerIcon';
 import HamburgerMenuIcon from './HamburgerMenuItem';
 
-const HamburgerMenu = ({isOpened, onToggleOpen, ...props}) => (
+const HamburgerMenu = ({isOpen, onToggleOpen, ...props}) => (
   <div>
     <StyledHamburgerIcon
-      isActive={isOpened}
+      isActive={isOpen}
       onActivate={onToggleOpen}
       rounding={20}
-      size={25}
-      thickness={5}
+      size={30}
+      thickness={4}
       color="white"
       {...props}
     />
-    <Menu isOpened={isOpened}>
+    <Menu isOpened={isOpen}>
       <HamburgerMenuIcon>First item</HamburgerMenuIcon>
       <HamburgerMenuIcon>Second item</HamburgerMenuIcon>
       <HamburgerMenuIcon>Third item</HamburgerMenuIcon>
@@ -34,10 +34,10 @@ const Menu = styled.div`
   width: 250px;
   height: auto;
 
-  transform-origin: center top;
-  transform: ${(props) => (props.isOpened ? 'translateY(0)' : 'translateY(-100%)')};
   /* transform-origin: center top;
-  transform: ${(props) => (!props.isOpened ? 'matrix3d(1,0,0.00,0,0.00,0,1.00,0.008,0,-1,0,0,0,0,0,1)' : 'matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)')}; */
+  transform: ${(props) => (props.isOpened ? 'translateY(0)' : 'translateY(-100%)')}; */
+  transform-origin: center top;
+  transform: ${(props) => (!props.isOpened ? 'matrix3d(1,0,0.00,0,0.00,0,1.00,0.008,0,-1,0,0,0,0,0,1)' : 'matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)')};
 
   background: #222;
   color: #FFF;
@@ -53,12 +53,12 @@ const StyledHamburgerIcon = styled(HamburgerIcon)`
 `;
 
 HamburgerMenu.propTypes = {
-  isOpened: PropTypes.bool,
+  isOpen: PropTypes.bool,
   onToggleOpen: PropTypes.func,
 };
 
 HamburgerMenu.defaultProps = {
-  isOpened: false,
+  isOpen: false,
   onToggleOpen: () => {},
 };
 

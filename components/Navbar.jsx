@@ -1,32 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 import HamburgerMenu from './HamburgerMenu';
 
-class Navbar extends React.PureComponent {
-  state = {
-    isOpen: false,
-  };
+const Navbar = () => {
+  const [isOpen, setOpen] = useState(false);
+  const toggleOpen = () => setOpen(!isOpen);
 
-  toggleOpen = () => this.setState((prevState) => ({isOpen: !prevState.isOpen}));
-
-  render() {
-    const {isOpen} = this.state;
-
-    return (
-      <Container>
-        <Content>
-          <StyledLogo />
-          <HamburgerMenu isOpened={isOpen} onToggleOpen={this.toggleOpen} />
-        </Content>
-      </Container>
-    );
-  }
-}
+  return (
+    <Container>
+      <Content>
+        <StyledLogo />
+        <HamburgerMenu isOpen={isOpen} onToggleOpen={toggleOpen} />
+      </Content>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   align-self: flex-start;
-  position: relative;
+  position: fixed;
 
   display: flex;
   align-items: center;

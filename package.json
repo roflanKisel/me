@@ -22,6 +22,7 @@
   "homepage": "https://github.com/roflanKisel/roflanKisel.github.io#readme",
   "dependencies": {
     "next": "^7.0.2",
+    "next-routes": "^1.4.2",
     "prop-types": "^15.6.2",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
